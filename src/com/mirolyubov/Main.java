@@ -1,8 +1,16 @@
 package com.mirolyubov;
 
+import com.mirolyubov.services.Demo;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        Demo demo = new Demo();
+
+	    demo.showStudentsInfoSortedByAverageMark();
+
+	    //demo.showStudentsInfoSortedByTimeUntilEndCurriculum();
+
     }
 }
