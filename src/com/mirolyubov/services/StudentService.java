@@ -4,6 +4,8 @@ import com.mirolyubov.data.StudentData;
 import com.mirolyubov.entity.Curriculum;
 import com.mirolyubov.entity.Student;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
@@ -53,7 +55,9 @@ public class StudentService {
 
     double getAverageMark(Student student) {
 
-        return student.getMarks().stream().mapToDouble(Integer::intValue).average().getAsDouble();
+        double result = student.getMarks().stream().mapToDouble(Integer::intValue).average().getAsDouble();
+
+        return new BigDecimal(result).setScale(1, RoundingMode.UP).doubleValue();
 
     }
 
