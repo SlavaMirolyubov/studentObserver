@@ -1,6 +1,7 @@
 package com.mirolyubov.data;
 
 import com.mirolyubov.entity.Student;
+import com.mirolyubov.services.CurriculumService;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -15,6 +16,8 @@ public class StudentData {
     private CurriculumData curriculumData = new CurriculumData();
 
     private List<Student> students = new ArrayList<>();
+
+    private CurriculumService curriculumService = new CurriculumService();
 
     public StudentData() {
         fillStudentList();
@@ -42,7 +45,7 @@ public class StudentData {
                 curriculumData.getCurriculumById(3), LocalDate.of(2019, 3, 15)));
 
         students.add(new Student(6, "Andrew Andreev",
-                curriculumData.getCurriculumById(3), LocalDate.of(2019,4, 5)));
+                curriculumData.getCurriculumById(3), LocalDate.of(2019,4, 14)));
     }
 
     private void fillMarksList() {
@@ -55,11 +58,11 @@ public class StudentData {
 
         List<Integer> marks = new ArrayList<>();
 
-        int numberofmarks = (int) DAYS.between(student.getStartDate(), LocalDate.now());
+        int numberofmarks = curriculumService.getCurriculumDuration(student.getStudentCurriculum());
 
         for (int i = 0; i < numberofmarks; i++) {
 
-            marks.add(ThreadLocalRandom.current().nextInt(1, 6));
+            marks.add(ThreadLocalRandom.current().nextInt(3, 6));
 
         }
 

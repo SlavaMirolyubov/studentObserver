@@ -10,7 +10,9 @@ public class Main {
 
 	    demo.showStudentsInfoSortedByAverageMark();
 
-	    //demo.showStudentsInfoSortedByTimeUntilEndCurriculum();
+        System.out.println("===============================================");
+
+	    demo.showStudentsInfoSortedByTimeUntilEndCurriculum();
 
     }
 }
